@@ -3,286 +3,503 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dwaraka Press – Books · Ideas · Knowledge</title>
-  <meta name="description" content="Dwaraka Press – Stories That Stay. Knowledge That Grows. Shop children's books, fiction, educational and non-fiction books." />
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Dwaraka Press – Launching Soon</title>
+  <meta name="description" content="Dwaraka Press – Stories That Stay. Knowledge That Grows. Our bookstore is launching soon." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0a;
+      --surface:   #141414;
+      --border:    #252525;
+      --text:      #e0e0e0;
+      --muted:     #6b6b6b;
+      --accent:    #4caf7d;
+      --accent2:   #c9a84c;
+      --white:     #ffffff;
+      --serif:     'Playfair Display', Georgia, serif;
+      --sans:      'Inter', system-ui, sans-serif;
+    }
+
+    html { height: 100%; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* ── Animated Background ── */
+    .bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.12;
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    .orb-1 { width: 700px; height: 700px; background: var(--accent);  top: -200px; right: -150px; animation-duration: 20s; }
+    .orb-2 { width: 500px; height: 500px; background: var(--accent2); bottom: -150px; left: -100px; animation-duration: 25s; animation-delay: -8s; }
+    .orb-3 { width: 300px; height: 300px; background: var(--accent);  top: 50%; left: 40%; animation-duration: 15s; animation-delay: -4s; }
+
+    @keyframes drift {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(40px, -60px) scale(1.08); }
+    }
+
+    /* ── Noise Overlay ── */
+    .bg-canvas::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.35;
+    }
+
+    /* ── Layout ── */
+    main {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100svh;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      gap: 0;
+    }
+
+    /* ── Top Badge ── */
+    .dev-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 999px;
+      padding: 0.45em 1.1em;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+      animation: fadeDown 0.8s ease both;
+    }
+    .dev-badge .dot {
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    /* ── Brand ── */
+    .brand-parent {
+      display: block;
+      font-family: var(--serif);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      animation: fadeDown 0.9s 0.1s ease both;
+    }
+    .brand-name {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 12vw, 8.5rem);
+      font-weight: 900;
+      line-height: 0.9;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      animation: fadeDown 1s 0.15s ease both;
+    }
+    .brand-press {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 5vw, 3.5rem);
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      margin-bottom: 1.5rem;
+      animation: fadeDown 1s 0.2s ease both;
+    }
+
+    /* Divider */
+    .divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 0 auto 1.5rem;
+      animation: fadeIn 1s 0.3s ease both;
+    }
+
+    /* ── Tagline ── */
+    .tagline {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2.5vw, 1.45rem);
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      animation: fadeDown 1s 0.35s ease both;
+    }
+    .subtagline {
+      font-size: 0.88rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 3.5rem;
+      animation: fadeDown 1s 0.4s ease both;
+    }
+    .subtagline span {
+      margin-inline: 0.4em;
+      color: var(--border);
+    }
+
+    /* ── Countdown ── */
+    .countdown-wrap {
+      margin-bottom: 3.5rem;
+      animation: fadeUp 1s 0.5s ease both;
+    }
+    .countdown-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+    .countdown {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .countdown-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      min-width: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      transition: border-color 0.3s;
+    }
+    .countdown-item:hover { border-color: var(--accent); }
+    .countdown-num {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      min-width: 2.5ch;
+      display: block;
+    }
+    .countdown-unit {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ── Email Signup ── */
+    .notify-wrap {
+      width: 100%;
+      max-width: 480px;
+      margin-bottom: 4rem;
+      animation: fadeUp 1s 0.65s ease both;
+    }
+    .notify-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .notify-form {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--surface);
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .notify-form:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(76,175,125,0.15);
+    }
+    .notify-form input {
+      flex: 1;
+      background: none;
+      border: none;
+      padding: 0.85em 1.25em;
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      outline: none;
+    }
+    .notify-form input::placeholder { color: var(--muted); }
+    .notify-form button {
+      background: var(--accent);
+      border: none;
+      padding: 0.85em 1.5em;
+      color: #000;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .notify-form button:hover { background: #3d9c6a; }
+    .notify-success {
+      margin-top: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 600;
+      min-height: 1.2em;
+    }
+
+    /* ── Imprints ── */
+    .imprints-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+      animation: fadeUp 1s 0.75s ease both;
+    }
+    .imprint-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.45em 1.1em;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .imprint-pill:hover { transform: translateY(-2px); }
+    .imprint-pill.kids      { border-color: #e8a83840; }
+    .imprint-pill.kids:hover      { border-color: #e8a838; color: #e8a838; }
+    .imprint-pill.learn     { border-color: #4c8fe840; }
+    .imprint-pill.learn:hover     { border-color: #4c8fe8; color: #4c8fe8; }
+    .imprint-pill.fiction   { border-color: #c84c8f40; }
+    .imprint-pill.fiction:hover   { border-color: #c84c8f; color: #c84c8f; }
+    .imprint-pill.knowledge { border-color: #4caf7d40; }
+    .imprint-pill.knowledge:hover { border-color: #4caf7d; color: #4caf7d; }
+
+    /* ── Footer ── */
+    .cs-footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .cs-footer p {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    .cs-footer a { color: var(--accent); text-decoration: none; }
+    .cs-footer a:hover { text-decoration: underline; }
+
+    /* ── Animations ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+      .countdown-item { min-width: 70px; padding: 1.1rem 1rem; }
+      .notify-form { flex-direction: column; border-radius: 10px; }
+      .notify-form button { border-radius: 0 0 9px 9px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ===== HEADER / NAV ===== -->
-  <header class="site-header" id="site-header">
-    <div class="header-inner container">
-      <a href="index.html" class="brand-logo" aria-label="Dwaraka Press home">
-        <span class="brand-parent">DWARAKA</span>
-        <span class="brand-name">PRESS</span>
-      </a>
-
-      <nav class="main-nav" aria-label="Main navigation">
-        <ul role="list">
-          <li><a href="#categories">Categories</a></li>
-          <li><a href="books.html">All Books</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <button class="icon-btn search-toggle" aria-label="Open search" aria-expanded="false" aria-controls="search-overlay">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </button>
-        <button class="icon-btn cart-toggle" aria-label="Open cart" aria-controls="cart-modal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="cart-badge" id="cart-count" aria-live="polite">0</span>
-        </button>
-        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Nav -->
-    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
-      <ul role="list">
-        <li><a href="#categories">Categories</a></li>
-        <li><a href="books.html">All Books</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- ===== SEARCH OVERLAY ===== -->
-  <div class="search-overlay" id="search-overlay" aria-hidden="true" role="search">
-    <div class="search-inner">
-      <label for="search-input" class="visually-hidden">Search books</label>
-      <input type="search" id="search-input" placeholder="Search books, authors, topics…" autocomplete="off" enterkeyhint="search" />
-      <button class="search-close" aria-label="Close search">✕</button>
-    </div>
-    <div class="search-results" id="search-results" aria-live="polite"></div>
+  <!-- Ambient background -->
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
   </div>
 
   <main>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-bg-art" aria-hidden="true">
-        <div class="hero-circle c1"></div>
-        <div class="hero-circle c2"></div>
-        <div class="hero-circle c3"></div>
-      </div>
-      <div class="container hero-content">
-        <p class="hero-eyebrow">DWARAKA GROUP / VENTURES</p>
-        <h1 id="hero-heading">
-          <span class="hero-title-main">DWARAKA</span>
-          <span class="hero-title-sub">PRESS</span>
-        </h1>
-        <p class="hero-meta">BOOKS &bull; IDEAS &bull; KNOWLEDGE</p>
-        <p class="hero-tagline"><em>Stories That Stay. Knowledge That Grows.</em></p>
-        <div class="hero-ctas">
-          <a href="books.html" class="btn btn-primary">Browse All Books</a>
-          <a href="#categories" class="btn btn-ghost">Explore Categories</a>
-        </div>
-      </div>
-      <div class="hero-scroll-hint" aria-hidden="true">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
-      </div>
-    </section>
+    <!-- Status badge -->
+    <div class="dev-badge">
+      <span class="dot"></span>
+      Under Development
+    </div>
 
-    <!-- ===== MARQUEE BANNER ===== -->
-    <div class="marquee-banner" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Children's Books</span><span>·</span>
-        <span>Fiction</span><span>·</span>
-        <span>Educational</span><span>·</span>
-        <span>Non-Fiction</span><span>·</span>
-        <span>Colouring Books</span><span>·</span>
-        <span>Reference</span><span>·</span>
-        <span>Stories</span><span>·</span>
-        <span>Knowledge</span><span>·</span>
-        <!-- duplicate for seamless loop -->
-        <span>Children's Books</span><span>·</span>
-        <span>Fiction</span><span>·</span>
-        <span>Educational</span><span>·</span>
-        <span>Non-Fiction</span><span>·</span>
-        <span>Colouring Books</span><span>·</span>
-        <span>Reference</span><span>·</span>
-        <span>Stories</span><span>·</span>
-        <span>Knowledge</span><span>·</span>
+    <!-- Brand -->
+    <span class="brand-parent">Dwaraka Group / Ventures</span>
+    <span class="brand-name">DWARAKA</span>
+    <span class="brand-press">PRESS</span>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- Tagline -->
+    <p class="tagline"><em>Stories That Stay. Knowledge That Grows.</em></p>
+    <p class="subtagline">
+      BOOKS <span>·</span> IDEAS <span>·</span> KNOWLEDGE
+    </p>
+
+    <!-- Countdown -->
+    <div class="countdown-wrap" aria-label="Countdown to launch">
+      <p class="countdown-label">Launching In</p>
+      <div class="countdown" role="timer" aria-live="polite">
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-unit">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-unit">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-unit">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-unit">Seconds</span>
+        </div>
       </div>
     </div>
 
-    <!-- ===== CATEGORIES ===== -->
-    <section class="categories-section" id="categories" aria-labelledby="cat-heading">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="cat-heading">Our Collections</h2>
-          <p>Four imprints, one passion for books</p>
-        </div>
-        <div class="categories-grid">
-          <a href="books.html?cat=kids" class="category-card cat-kids" data-cat="kids">
-            <div class="cat-icon" aria-hidden="true">🧒</div>
-            <h3>Dwaraka Kids</h3>
-            <p>Children's books and colouring books</p>
-            <span class="cat-link">Explore →</span>
-          </a>
-          <a href="books.html?cat=learn" class="category-card cat-learn" data-cat="learn">
-            <div class="cat-icon" aria-hidden="true">🎓</div>
-            <h3>Dwaraka Learn</h3>
-            <p>Educational and academic books</p>
-            <span class="cat-link">Explore →</span>
-          </a>
-          <a href="books.html?cat=fiction" class="category-card cat-fiction" data-cat="fiction">
-            <div class="cat-icon" aria-hidden="true">📖</div>
-            <h3>Dwaraka Fiction</h3>
-            <p>Stories and novels</p>
-            <span class="cat-link">Explore →</span>
-          </a>
-          <a href="books.html?cat=knowledge" class="category-card cat-knowledge" data-cat="knowledge">
-            <div class="cat-icon" aria-hidden="true">🔬</div>
-            <h3>Dwaraka Knowledge</h3>
-            <p>Non-fiction and reference books</p>
-            <span class="cat-link">Explore →</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- Email notify -->
+    <div class="notify-wrap">
+      <p class="notify-label">Be the first to know when we launch — no spam, ever.</p>
+      <form class="notify-form" id="notify-form" novalidate>
+        <label for="notify-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Your email address</label>
+        <input
+          type="email"
+          id="notify-email"
+          name="email"
+          placeholder="Enter your email address"
+          autocomplete="email"
+          inputmode="email"
+          enterkeyhint="send"
+          required
+        />
+        <button type="submit">Notify Me</button>
+      </form>
+      <p class="notify-success" id="notify-msg" aria-live="polite"></p>
+    </div>
 
-    <!-- ===== FEATURED BOOKS ===== -->
-    <section class="featured-section" aria-labelledby="featured-heading">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="featured-heading">Featured Books</h2>
-          <a href="books.html" class="see-all-link">See all books →</a>
-        </div>
-        <div class="books-grid" id="featured-books" role="list">
-          <!-- Populated by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== BANNER / PROMO ===== -->
-    <section class="promo-banner" aria-labelledby="promo-heading">
-      <div class="container promo-inner">
-        <div class="promo-text">
-          <h2 id="promo-heading">Start Your Reading Journey Today</h2>
-          <p>Free shipping on orders above ₹499. Curated picks delivered to your door.</p>
-          <a href="books.html" class="btn btn-primary">Shop Now</a>
-        </div>
-        <div class="promo-art" aria-hidden="true">
-          <div class="promo-book pb1"></div>
-          <div class="promo-book pb2"></div>
-          <div class="promo-book pb3"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== TESTIMONIALS ===== -->
-    <section class="testimonials-section" aria-labelledby="testimonials-heading">
-      <div class="container">
-        <h2 id="testimonials-heading" class="visually-hidden">What readers say</h2>
-        <div class="testimonials-grid">
-          <blockquote class="testimonial-card">
-            <p>"The Dwaraka Kids series is our family's bedtime favourite. Beautiful illustrations and heartwarming stories."</p>
-            <footer><cite>— Priya Sharma, Chennai</cite></footer>
-          </blockquote>
-          <blockquote class="testimonial-card">
-            <p>"Dwaraka Learn textbooks are clear and comprehensive. My students love the structured approach."</p>
-            <footer><cite>— Dr. Ramesh Kumar, Hyderabad</cite></footer>
-          </blockquote>
-          <blockquote class="testimonial-card">
-            <p>"I've read every Dwaraka Fiction novel. Each one leaves something behind — a thought, a feeling, a memory."</p>
-            <footer><cite>— Ananya Reddy, Bengaluru</cite></footer>
-          </blockquote>
-        </div>
-      </div>
-    </section>
+    <!-- Imprints preview -->
+    <div class="imprints-row" aria-label="Our publishing imprints">
+      <span class="imprint-pill kids">🧒 Dwaraka Kids</span>
+      <span class="imprint-pill fiction">📖 Dwaraka Fiction</span>
+      <span class="imprint-pill learn">🎓 Dwaraka Learn</span>
+      <span class="imprint-pill knowledge">🔬 Dwaraka Knowledge</span>
+    </div>
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <span class="brand-parent">DWARAKA</span>
-          <span class="brand-name">PRESS</span>
-        </div>
-        <p>Stories That Stay.<br/>Knowledge That Grows.</p>
-        <p class="footer-parent">Part of the Dwaraka Group / Ventures</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Imprints</h4>
-          <ul role="list">
-            <li><a href="books.html?cat=kids">Dwaraka Kids</a></li>
-            <li><a href="books.html?cat=learn">Dwaraka Learn</a></li>
-            <li><a href="books.html?cat=fiction">Dwaraka Fiction</a></li>
-            <li><a href="books.html?cat=knowledge">Dwaraka Knowledge</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Shop</h4>
-          <ul role="list">
-            <li><a href="books.html">All Books</a></li>
-            <li><a href="books.html?sort=new">New Arrivals</a></li>
-            <li><a href="books.html?sort=bestseller">Bestsellers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul role="list">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">Authors</a></li>
-            <li><a href="#">Submissions</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Help</h4>
-          <ul role="list">
-            <li><a href="#">Shipping Policy</a></li>
-            <li><a href="#">Returns</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom container">
-      <p>&copy; 2026 Dwaraka Press. All rights reserved.</p>
-      <p>A Dwaraka Group / Ventures Company</p>
-    </div>
+  <footer class="cs-footer">
+    <p>&copy; 2026 Dwaraka Press &mdash; A Dwaraka Group / Ventures Company</p>
+    <p><a href="mailto:press@dwaraka.in">press@dwaraka.in</a></p>
   </footer>
 
-  <!-- ===== CART MODAL ===== -->
-  <dialog class="cart-modal" id="cart-modal" aria-labelledby="cart-heading">
-    <div class="cart-modal-inner">
-      <div class="cart-header">
-        <h2 id="cart-heading">Your Cart</h2>
-        <button class="icon-btn cart-close" aria-label="Close cart">✕</button>
-      </div>
-      <div class="cart-items" id="cart-items" aria-live="polite">
-        <p class="cart-empty">Your cart is empty.</p>
-      </div>
-      <div class="cart-footer" id="cart-footer" hidden>
-        <div class="cart-total">
-          <span>Total</span>
-          <span id="cart-total-price">₹0</span>
-        </div>
-        <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
-      </div>
-    </div>
-  </dialog>
+  <script>
+    // ── Countdown Timer ──
+    // Set your launch date here (YYYY, MM-1, DD, HH, MM, SS)
+    const LAUNCH = new Date(2027, 0, 1, 0, 0, 0); // 1 Jan 2027
 
-  <!-- ===== TOAST ===== -->
-  <div class="toast" id="toast" aria-live="assertive" aria-atomic="true" hidden></div>
+    const pad = n => String(n).padStart(2, '0');
 
-  <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/main.js"></script>
+    function tick() {
+      const now  = new Date();
+      const diff = LAUNCH - now;
+
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent  = '00';
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-mins').textContent  = '00';
+        document.getElementById('cd-secs').textContent  = '00';
+        return;
+      }
+
+      const days  = Math.floor(diff / 864e5);
+      const hours = Math.floor((diff % 864e5) / 36e5);
+      const mins  = Math.floor((diff % 36e5)  / 6e4);
+      const secs  = Math.floor((diff % 6e4)   / 1e3);
+
+      document.getElementById('cd-days').textContent  = pad(days);
+      document.getElementById('cd-hours').textContent = pad(hours);
+      document.getElementById('cd-mins').textContent  = pad(mins);
+      document.getElementById('cd-secs').textContent  = pad(secs);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+
+    // ── Email Notify Form ──
+    document.getElementById('notify-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('notify-email').value.trim();
+      const msg   = document.getElementById('notify-msg');
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.style.color = '#e44';
+        msg.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      // Simulate submission (replace with your backend / Mailchimp API)
+      msg.style.color = 'var(--accent)';
+      msg.textContent = '🎉 You\'re on the list! We\'ll let you know the moment we launch.';
+      this.querySelector('input').value = '';
+      this.querySelector('button').disabled = true;
+      this.querySelector('button').textContent = 'Done ✓';
+    });
+  </script>
 </body>
 </html>
