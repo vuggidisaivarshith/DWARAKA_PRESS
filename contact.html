@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Dwaraka Press</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-parent">DWARAKA</span>
+        <span class="brand-name">PRESS</span>
+      </a>
+      <nav class="main-nav">
+        <ul role="list">
+          <li><a href="index.html#categories">Categories</a></li>
+          <li><a href="books.html">All Books</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn cart-toggle" aria-label="Open cart" aria-controls="cart-modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <ul role="list">
+        <li><a href="index.html#categories">Categories</a></li>
+        <li><a href="books.html">All Books</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero-about">
+      <div class="container">
+        <p class="page-hero-eyebrow"><a href="index.html">Home</a> / Contact</p>
+        <h1>Get in Touch</h1>
+        <p>We'd love to hear from you — readers, authors, and partners alike.</p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container contact-grid">
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrap">
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="c-name">Your Name</label>
+              <input type="text" id="c-name" name="name"
+                     autocomplete="name" required enterkeyhint="next"
+                     placeholder="Full name" />
+            </div>
+            <div class="form-group">
+              <label for="c-email">Email Address</label>
+              <input type="email" id="c-email" name="email"
+                     autocomplete="email" required enterkeyhint="next"
+                     placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="c-subject">Subject</label>
+              <input type="text" id="c-subject" name="subject"
+                     required enterkeyhint="next"
+                     placeholder="Order enquiry, author submission, etc." />
+            </div>
+            <div class="form-group">
+              <label for="c-message">Message</label>
+              <textarea id="c-message" name="message"
+                        rows="6" required
+                        enterkeyhint="done"
+                        placeholder="Tell us how we can help…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+          <div class="contact-success" id="contact-success" hidden>
+            <p>✅ Thank you! We'll get back to you within 2 business days.</p>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <aside class="contact-info">
+          <div class="info-card">
+            <span class="info-icon">📍</span>
+            <div>
+              <h4>Address</h4>
+              <p>Dwaraka Group / Ventures<br/>Hyderabad, Telangana, India</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <span class="info-icon">📧</span>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:press@dwaraka.in">press@dwaraka.in</a></p>
+            </div>
+          </div>
+          <div class="info-card">
+            <span class="info-icon">📞</span>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 40 XXXX XXXX</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <span class="info-icon">🕐</span>
+            <div>
+              <h4>Business Hours</h4>
+              <p>Monday – Friday<br/>9:00 AM – 6:00 PM IST</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="padding-block:1.5rem">
+      <p>&copy; 2026 Dwaraka Press. All rights reserved.</p>
+      <p>A Dwaraka Group / Ventures Company</p>
+    </div>
+  </footer>
+
+  <dialog class="cart-modal" id="cart-modal" aria-labelledby="cart-heading">
+    <div class="cart-modal-inner">
+      <div class="cart-header">
+        <h2 id="cart-heading">Your Cart</h2>
+        <button class="icon-btn cart-close">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items"><p class="cart-empty">Your cart is empty.</p></div>
+      <div class="cart-footer" id="cart-footer" hidden>
+        <div class="cart-total"><span>Total</span><span id="cart-total-price">₹0</span></div>
+        <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" aria-live="assertive" aria-atomic="true" hidden></div>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', e => {
+      e.preventDefault();
+      if (!e.target.checkValidity()) { e.target.reportValidity(); return; }
+      e.target.hidden = true;
+      document.getElementById('contact-success').hidden = false;
+    });
+  </script>
+</body>
+</html>

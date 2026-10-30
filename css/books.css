@@ -1,0 +1,154 @@
+/* ============================================================
+   DWARAKA PRESS – Books Page Additional Styles
+   ============================================================ */
+
+/* Page Hero */
+.page-hero {
+  padding-block: 4rem 3rem;
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+}
+.page-hero-eyebrow {
+  font-size: 0.78rem;
+  color: var(--clr-text-muted);
+  margin-bottom: 0.75rem;
+}
+.page-hero-eyebrow a {
+  color: var(--clr-accent);
+  transition: opacity 0.2s;
+}
+.page-hero-eyebrow a:hover { opacity: 0.7; }
+.page-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--clr-white);
+  margin-bottom: 0.5rem;
+}
+.page-hero p {
+  color: var(--clr-text-muted);
+  font-size: 1rem;
+}
+
+/* Shop Layout */
+.shop-section { padding-block: 3rem 5rem; }
+.shop-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Filters */
+.filters-sidebar {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  position: sticky;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.filter-heading {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-bottom: 0.25rem;
+}
+.filter-group {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.filter-group legend {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-text-muted);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--clr-text);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.filter-group label:hover { color: var(--clr-accent); }
+.filter-group input[type="radio"] {
+  accent-color: var(--clr-accent);
+  width: 15px; height: 15px;
+  cursor: pointer;
+}
+
+/* Price Range */
+.price-range { display: flex; flex-direction: column; gap: 0.5rem; }
+.price-range input[type="range"] {
+  width: 100%;
+  accent-color: var(--clr-accent);
+  cursor: pointer;
+}
+.price-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+}
+#price-max-label { color: var(--clr-accent); font-weight: 600; }
+
+/* Results Header */
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+.results-count {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  font-weight: 400;
+  font-family: var(--font-sans);
+}
+.mobile-filter-toggle { display: none; font-size: 0.85rem; padding: 0.5em 1em; }
+
+.no-results {
+  text-align: center;
+  color: var(--clr-text-muted);
+  padding: 3rem;
+  font-size: 0.95rem;
+}
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--clr-accent);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Nav current page */
+.main-nav a[aria-current="page"] {
+  color: var(--clr-accent);
+}
+.main-nav a[aria-current="page"]::after { width: 100%; }
+
+/* Responsive */
+@media (max-width: 860px) {
+  .shop-layout { grid-template-columns: 1fr; }
+  .filters-sidebar {
+    position: static;
+    display: none;
+  }
+  .filters-sidebar.open { display: flex; }
+  .mobile-filter-toggle { display: flex; }
+}

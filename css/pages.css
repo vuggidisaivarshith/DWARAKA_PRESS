@@ -1,0 +1,226 @@
+/* ============================================================
+   DWARAKA PRESS – About & Contact Page Styles
+   ============================================================ */
+
+/* Shared page hero */
+.page-hero-about {
+  padding-block: 5rem 3.5rem;
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+}
+.page-hero-about .page-hero-eyebrow {
+  font-size: 0.78rem;
+  color: var(--clr-text-muted);
+  margin-bottom: 0.75rem;
+}
+.page-hero-about .page-hero-eyebrow a { color: var(--clr-accent); }
+.page-hero-about h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--clr-white);
+  margin-bottom: 0.5rem;
+}
+.page-hero-about p { color: var(--clr-text-muted); font-size: 1rem; }
+
+/* ===== ABOUT ===== */
+.about-section { padding-block: var(--space-xl); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+.about-text .about-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.about-text h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
+}
+.about-text p {
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.about-quote {
+  border-left: 3px solid var(--clr-accent);
+  padding: 1rem 1.5rem;
+  background: var(--clr-surface);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--clr-white);
+  margin-top: 1.5rem;
+}
+
+.about-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.stat-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.stat-card:hover { transform: translateY(-3px); border-color: var(--clr-accent); }
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--clr-accent);
+  line-height: 1;
+}
+.stat-label { font-size: 0.8rem; color: var(--clr-text-muted); font-weight: 500; }
+
+/* Imprints About */
+.imprints-about {
+  padding-block: var(--space-xl);
+  background: var(--clr-surface);
+  border-block: 1px solid var(--clr-border);
+}
+.imprints-about h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.imprints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.imprint-card {
+  border: 1px solid var(--clr-border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--clr-bg);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.imprint-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.imprint-card span { font-size: 2rem; }
+.imprint-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--clr-white);
+}
+.imprint-card p { font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.65; }
+
+/* ===== CONTACT ===== */
+.contact-section { padding-block: var(--space-xl); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  align-items: start;
+}
+.contact-form-wrap {
+  max-width: 600px;
+}
+
+/* Reuse form-group from checkout via global styles / inline */
+.contact-form-wrap .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+.contact-form-wrap label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.contact-form-wrap input,
+.contact-form-wrap textarea {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  color: var(--clr-white);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  padding: 0.75em 1em;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.contact-form-wrap input:focus,
+.contact-form-wrap textarea:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px rgba(76, 175, 125, 0.15);
+}
+.contact-form-wrap input::placeholder,
+.contact-form-wrap textarea::placeholder { color: var(--clr-text-muted); }
+.contact-form-wrap textarea { resize: vertical; }
+
+.contact-success {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-accent);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  color: var(--clr-accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 0.5rem;
+}
+.info-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+.info-icon { font-size: 1.4rem; flex-shrink: 0; }
+.info-card h4 {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-text-muted);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+.info-card p { font-size: 0.9rem; color: var(--clr-text); line-height: 1.6; }
+.info-card a { color: var(--clr-accent); text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 860px) {
+  .about-grid   { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-info { order: -1; }
+}

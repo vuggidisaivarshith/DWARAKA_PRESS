@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Dwaraka Press</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-parent">DWARAKA</span>
+        <span class="brand-name">PRESS</span>
+      </a>
+      <nav class="main-nav">
+        <ul role="list">
+          <li><a href="index.html#categories">Categories</a></li>
+          <li><a href="books.html">All Books</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn cart-toggle" aria-label="Open cart" aria-controls="cart-modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <ul role="list">
+        <li><a href="index.html#categories">Categories</a></li>
+        <li><a href="books.html">All Books</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero-about">
+      <div class="container">
+        <p class="page-hero-eyebrow"><a href="index.html">Home</a> / About</p>
+        <h1>About Dwaraka Press</h1>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="container about-grid">
+        <div class="about-text">
+          <p class="about-eyebrow">Our Story</p>
+          <h2>Born from a love of books and ideas</h2>
+          <p>Dwaraka Press is an independent book publishing house under the Dwaraka Group / Ventures umbrella. We believe that great books change lives — and we are committed to bringing the best of Indian stories, ideas, and knowledge to readers everywhere.</p>
+          <p>From picture books for the youngest readers to comprehensive reference works for scholars, Dwaraka Press publishes across four specialised imprints, each with its own voice and vision.</p>
+          <blockquote class="about-quote">
+            "Stories That Stay. Knowledge That Grows."
+          </blockquote>
+        </div>
+        <div class="about-visual">
+          <div class="about-stat-grid">
+            <div class="stat-card">
+              <span class="stat-number">4</span>
+              <span class="stat-label">Publishing Imprints</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Books Published</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Authors</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">∞</span>
+              <span class="stat-label">Stories to Tell</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="imprints-about">
+      <div class="container">
+        <h2>Our Four Imprints</h2>
+        <div class="imprints-grid">
+          <div class="imprint-card" style="--accent:var(--clr-kids)">
+            <span>🧒</span>
+            <h3>Dwaraka Kids</h3>
+            <p>Children's books and colouring books that spark imagination, nurture creativity, and build a love for reading from the earliest age.</p>
+          </div>
+          <div class="imprint-card" style="--accent:var(--clr-fiction)">
+            <span>📖</span>
+            <h3>Dwaraka Fiction</h3>
+            <p>Novels and short story collections that explore the full range of human experience — from sweeping epics to intimate literary fiction.</p>
+          </div>
+          <div class="imprint-card" style="--accent:var(--clr-learn)">
+            <span>🎓</span>
+            <h3>Dwaraka Learn</h3>
+            <p>Educational and academic books for students at every level, designed to make learning clear, engaging, and effective.</p>
+          </div>
+          <div class="imprint-card" style="--accent:var(--clr-knowledge)">
+            <span>🔬</span>
+            <h3>Dwaraka Knowledge</h3>
+            <p>Non-fiction and reference books for curious minds — covering culture, science, history, food, environment, and more.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="padding-block:1.5rem">
+      <p>&copy; 2026 Dwaraka Press. All rights reserved.</p>
+      <p>A Dwaraka Group / Ventures Company</p>
+    </div>
+  </footer>
+
+  <dialog class="cart-modal" id="cart-modal" aria-labelledby="cart-heading">
+    <div class="cart-modal-inner">
+      <div class="cart-header">
+        <h2 id="cart-heading">Your Cart</h2>
+        <button class="icon-btn cart-close">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items"><p class="cart-empty">Your cart is empty.</p></div>
+      <div class="cart-footer" id="cart-footer" hidden>
+        <div class="cart-total"><span>Total</span><span id="cart-total-price">₹0</span></div>
+        <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" aria-live="assertive" aria-atomic="true" hidden></div>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

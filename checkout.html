@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout – Dwaraka Press</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="brand-logo" aria-label="Dwaraka Press home">
+        <span class="brand-parent">DWARAKA</span>
+        <span class="brand-name">PRESS</span>
+      </a>
+      <div class="checkout-steps" aria-label="Checkout progress">
+        <span class="step active">1. Details</span>
+        <span class="step-sep">→</span>
+        <span class="step" id="step-2-label">2. Payment</span>
+        <span class="step-sep">→</span>
+        <span class="step" id="step-3-label">3. Confirm</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container checkout-layout">
+
+      <!-- ===== FORMS ===== -->
+      <div class="checkout-forms">
+
+        <!-- Step 1: Shipping -->
+        <section class="checkout-step" id="step-1" aria-labelledby="step1-heading">
+          <h2 id="step1-heading">Shipping Details</h2>
+          <form id="shipping-form" novalidate>
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+              <input type="text" id="full-name" name="full-name"
+                     autocomplete="name" required
+                     placeholder="e.g. Priya Sharma" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email"
+                       autocomplete="email" required
+                       enterkeyhint="next"
+                       placeholder="you@example.com" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone"
+                       autocomplete="tel" required
+                       inputmode="tel"
+                       enterkeyhint="next"
+                       placeholder="+91 98765 43210" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address">Delivery Address</label>
+              <textarea id="address" name="address"
+                        autocomplete="shipping street-address"
+                        rows="3" required
+                        placeholder="House/Flat No., Street, Area…"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city"
+                       autocomplete="shipping address-level2" required
+                       enterkeyhint="next" placeholder="Chennai" />
+              </div>
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state"
+                       autocomplete="shipping address-level1" required
+                       enterkeyhint="next" placeholder="Tamil Nadu" />
+              </div>
+              <div class="form-group">
+                <label for="pincode">PIN Code</label>
+                <input type="text" id="pincode" name="pincode"
+                       autocomplete="shipping postal-code" required
+                       inputmode="numeric" maxlength="6"
+                       pattern="[0-9]{6}"
+                       enterkeyhint="next"
+                       placeholder="600001" />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" enterkeyhint="next">
+              Proceed to Payment →
+            </button>
+          </form>
+        </section>
+
+        <!-- Step 2: Payment -->
+        <section class="checkout-step" id="step-2" hidden aria-labelledby="step2-heading">
+          <h2 id="step2-heading">Payment Details</h2>
+          <form id="payment-form" novalidate>
+            <div class="form-group">
+              <label for="cc-name">Name on Card</label>
+              <input type="text" id="cc-name" name="cc-name"
+                     autocomplete="cc-name" required
+                     maxlength="50" enterkeyhint="next"
+                     placeholder="As printed on card" />
+            </div>
+            <div class="form-group">
+              <label for="cc-number">Card Number</label>
+              <input type="text" id="cc-number" name="cc-number"
+                     autocomplete="cc-number"
+                     inputmode="numeric" required
+                     maxlength="19" pattern="[\d ]{13,19}"
+                     enterkeyhint="next"
+                     placeholder="1234 5678 9012 3456" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <span class="hint" id="exp-hint">Format: MM/YY</span>
+                <label for="cc-exp">Expiry Date</label>
+                <input type="text" id="cc-exp" name="cc-exp"
+                       autocomplete="cc-exp" required
+                       aria-describedby="exp-hint"
+                       maxlength="5"
+                       enterkeyhint="next"
+                       placeholder="MM/YY" />
+              </div>
+              <div class="form-group">
+                <label for="cc-csc">Security Code (CVV)</label>
+                <input type="text" id="cc-csc" name="cc-csc"
+                       autocomplete="cc-csc"
+                       inputmode="numeric" required
+                       maxlength="4" pattern="[0-9]{3,4}"
+                       enterkeyhint="done"
+                       placeholder="3 or 4 digits" />
+              </div>
+            </div>
+            <div class="payment-note">
+              <span>🔒</span>
+              <span>Your payment information is encrypted and secure.</span>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-ghost" id="back-to-shipping">← Back</button>
+              <button type="submit" class="btn btn-primary" enterkeyhint="done">Place Order →</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Step 3: Confirmation -->
+        <section class="checkout-step" id="step-3" hidden aria-labelledby="step3-heading">
+          <div class="order-success">
+            <div class="success-icon" aria-hidden="true">🎉</div>
+            <h2 id="step3-heading">Order Placed!</h2>
+            <p>Thank you for shopping with Dwaraka Press. Your books are on their way!</p>
+            <p class="order-id">Order ID: <strong id="order-id-display"></strong></p>
+            <p class="order-note">A confirmation email will be sent to <strong id="confirm-email"></strong></p>
+            <a href="books.html" class="btn btn-primary" style="margin-top:2rem">Continue Shopping</a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ===== ORDER SUMMARY ===== -->
+      <aside class="order-summary" aria-label="Order summary">
+        <h2>Order Summary</h2>
+        <div id="summary-items" aria-live="polite"></div>
+        <div class="summary-totals">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="summary-subtotal">₹0</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span id="summary-shipping">₹0</span>
+          </div>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <span id="summary-total">₹0</span>
+          </div>
+        </div>
+        <p class="shipping-note" id="shipping-note"></p>
+      </aside>
+
+    </div>
+  </main>
+
+  <div class="toast" id="toast" aria-live="assertive" aria-atomic="true" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dwaraka Press – Books · Ideas · Knowledge</title>
+  <meta name="description" content="Dwaraka Press – Stories That Stay. Knowledge That Grows. Shop children's books, fiction, educational and non-fiction books." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="brand-logo" aria-label="Dwaraka Press home">
+        <span class="brand-parent">DWARAKA</span>
+        <span class="brand-name">PRESS</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul role="list">
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="books.html">All Books</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn search-toggle" aria-label="Open search" aria-expanded="false" aria-controls="search-overlay">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="icon-btn cart-toggle" aria-label="Open cart" aria-controls="cart-modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cart-count" aria-live="polite">0</span>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="books.html">All Books</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== SEARCH OVERLAY ===== -->
+  <div class="search-overlay" id="search-overlay" aria-hidden="true" role="search">
+    <div class="search-inner">
+      <label for="search-input" class="visually-hidden">Search books</label>
+      <input type="search" id="search-input" placeholder="Search books, authors, topics…" autocomplete="off" enterkeyhint="search" />
+      <button class="search-close" aria-label="Close search">✕</button>
+    </div>
+    <div class="search-results" id="search-results" aria-live="polite"></div>
+  </div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg-art" aria-hidden="true">
+        <div class="hero-circle c1"></div>
+        <div class="hero-circle c2"></div>
+        <div class="hero-circle c3"></div>
+      </div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow">DWARAKA GROUP / VENTURES</p>
+        <h1 id="hero-heading">
+          <span class="hero-title-main">DWARAKA</span>
+          <span class="hero-title-sub">PRESS</span>
+        </h1>
+        <p class="hero-meta">BOOKS &bull; IDEAS &bull; KNOWLEDGE</p>
+        <p class="hero-tagline"><em>Stories That Stay. Knowledge That Grows.</em></p>
+        <div class="hero-ctas">
+          <a href="books.html" class="btn btn-primary">Browse All Books</a>
+          <a href="#categories" class="btn btn-ghost">Explore Categories</a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== MARQUEE BANNER ===== -->
+    <div class="marquee-banner" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Children's Books</span><span>·</span>
+        <span>Fiction</span><span>·</span>
+        <span>Educational</span><span>·</span>
+        <span>Non-Fiction</span><span>·</span>
+        <span>Colouring Books</span><span>·</span>
+        <span>Reference</span><span>·</span>
+        <span>Stories</span><span>·</span>
+        <span>Knowledge</span><span>·</span>
+        <!-- duplicate for seamless loop -->
+        <span>Children's Books</span><span>·</span>
+        <span>Fiction</span><span>·</span>
+        <span>Educational</span><span>·</span>
+        <span>Non-Fiction</span><span>·</span>
+        <span>Colouring Books</span><span>·</span>
+        <span>Reference</span><span>·</span>
+        <span>Stories</span><span>·</span>
+        <span>Knowledge</span><span>·</span>
+      </div>
+    </div>
+
+    <!-- ===== CATEGORIES ===== -->
+    <section class="categories-section" id="categories" aria-labelledby="cat-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="cat-heading">Our Collections</h2>
+          <p>Four imprints, one passion for books</p>
+        </div>
+        <div class="categories-grid">
+          <a href="books.html?cat=kids" class="category-card cat-kids" data-cat="kids">
+            <div class="cat-icon" aria-hidden="true">🧒</div>
+            <h3>Dwaraka Kids</h3>
+            <p>Children's books and colouring books</p>
+            <span class="cat-link">Explore →</span>
+          </a>
+          <a href="books.html?cat=learn" class="category-card cat-learn" data-cat="learn">
+            <div class="cat-icon" aria-hidden="true">🎓</div>
+            <h3>Dwaraka Learn</h3>
+            <p>Educational and academic books</p>
+            <span class="cat-link">Explore →</span>
+          </a>
+          <a href="books.html?cat=fiction" class="category-card cat-fiction" data-cat="fiction">
+            <div class="cat-icon" aria-hidden="true">📖</div>
+            <h3>Dwaraka Fiction</h3>
+            <p>Stories and novels</p>
+            <span class="cat-link">Explore →</span>
+          </a>
+          <a href="books.html?cat=knowledge" class="category-card cat-knowledge" data-cat="knowledge">
+            <div class="cat-icon" aria-hidden="true">🔬</div>
+            <h3>Dwaraka Knowledge</h3>
+            <p>Non-fiction and reference books</p>
+            <span class="cat-link">Explore →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURED BOOKS ===== -->
+    <section class="featured-section" aria-labelledby="featured-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="featured-heading">Featured Books</h2>
+          <a href="books.html" class="see-all-link">See all books →</a>
+        </div>
+        <div class="books-grid" id="featured-books" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BANNER / PROMO ===== -->
+    <section class="promo-banner" aria-labelledby="promo-heading">
+      <div class="container promo-inner">
+        <div class="promo-text">
+          <h2 id="promo-heading">Start Your Reading Journey Today</h2>
+          <p>Free shipping on orders above ₹499. Curated picks delivered to your door.</p>
+          <a href="books.html" class="btn btn-primary">Shop Now</a>
+        </div>
+        <div class="promo-art" aria-hidden="true">
+          <div class="promo-book pb1"></div>
+          <div class="promo-book pb2"></div>
+          <div class="promo-book pb3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials-section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <h2 id="testimonials-heading" class="visually-hidden">What readers say</h2>
+        <div class="testimonials-grid">
+          <blockquote class="testimonial-card">
+            <p>"The Dwaraka Kids series is our family's bedtime favourite. Beautiful illustrations and heartwarming stories."</p>
+            <footer><cite>— Priya Sharma, Chennai</cite></footer>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>"Dwaraka Learn textbooks are clear and comprehensive. My students love the structured approach."</p>
+            <footer><cite>— Dr. Ramesh Kumar, Hyderabad</cite></footer>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>"I've read every Dwaraka Fiction novel. Each one leaves something behind — a thought, a feeling, a memory."</p>
+            <footer><cite>— Ananya Reddy, Bengaluru</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="brand-parent">DWARAKA</span>
+          <span class="brand-name">PRESS</span>
+        </div>
+        <p>Stories That Stay.<br/>Knowledge That Grows.</p>
+        <p class="footer-parent">Part of the Dwaraka Group / Ventures</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Imprints</h4>
+          <ul role="list">
+            <li><a href="books.html?cat=kids">Dwaraka Kids</a></li>
+            <li><a href="books.html?cat=learn">Dwaraka Learn</a></li>
+            <li><a href="books.html?cat=fiction">Dwaraka Fiction</a></li>
+            <li><a href="books.html?cat=knowledge">Dwaraka Knowledge</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul role="list">
+            <li><a href="books.html">All Books</a></li>
+            <li><a href="books.html?sort=new">New Arrivals</a></li>
+            <li><a href="books.html?sort=bestseller">Bestsellers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul role="list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Authors</a></li>
+            <li><a href="#">Submissions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul role="list">
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Dwaraka Press. All rights reserved.</p>
+      <p>A Dwaraka Group / Ventures Company</p>
+    </div>
+  </footer>
+
+  <!-- ===== CART MODAL ===== -->
+  <dialog class="cart-modal" id="cart-modal" aria-labelledby="cart-heading">
+    <div class="cart-modal-inner">
+      <div class="cart-header">
+        <h2 id="cart-heading">Your Cart</h2>
+        <button class="icon-btn cart-close" aria-label="Close cart">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items" aria-live="polite">
+        <p class="cart-empty">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer" id="cart-footer" hidden>
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cart-total-price">₹0</span>
+        </div>
+        <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast" aria-live="assertive" aria-atomic="true" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

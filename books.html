@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Books – Dwaraka Press</title>
+  <meta name="description" content="Browse all books from Dwaraka Press – Children's books, Fiction, Educational, and Knowledge." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/books.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="brand-logo" aria-label="Dwaraka Press home">
+        <span class="brand-parent">DWARAKA</span>
+        <span class="brand-name">PRESS</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul role="list">
+          <li><a href="index.html#categories">Categories</a></li>
+          <li><a href="books.html" aria-current="page">All Books</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn search-toggle" aria-label="Open search" aria-expanded="false" aria-controls="search-overlay">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="icon-btn cart-toggle" aria-label="Open cart" aria-controls="cart-modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cart-count" aria-live="polite">0</span>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <ul role="list">
+        <li><a href="index.html#categories">Categories</a></li>
+        <li><a href="books.html">All Books</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="search-overlay" id="search-overlay" aria-hidden="true" role="search">
+    <div class="search-inner">
+      <label for="search-input" class="visually-hidden">Search books</label>
+      <input type="search" id="search-input" placeholder="Search books, authors, topics…" autocomplete="off" enterkeyhint="search" />
+      <button class="search-close" aria-label="Close search">✕</button>
+    </div>
+    <div class="search-results" id="search-results" aria-live="polite"></div>
+  </div>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="page-hero-eyebrow"><a href="index.html">Home</a> / All Books</p>
+        <h1>Our Books</h1>
+        <p>Stories, knowledge, and ideas — find your next great read</p>
+      </div>
+    </section>
+
+    <!-- Filter & Books -->
+    <section class="shop-section" aria-labelledby="books-heading">
+      <div class="container shop-layout">
+
+        <!-- Sidebar Filters -->
+        <aside class="filters-sidebar" aria-label="Filter books">
+          <h2 id="filter-heading" class="filter-heading">Filter Books</h2>
+
+          <fieldset class="filter-group">
+            <legend>Category</legend>
+            <label><input type="radio" name="cat" value="all" checked /> All Categories</label>
+            <label><input type="radio" name="cat" value="kids" /> Dwaraka Kids</label>
+            <label><input type="radio" name="cat" value="learn" /> Dwaraka Learn</label>
+            <label><input type="radio" name="cat" value="fiction" /> Dwaraka Fiction</label>
+            <label><input type="radio" name="cat" value="knowledge" /> Dwaraka Knowledge</label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>Sort By</legend>
+            <label><input type="radio" name="sort" value="default" checked /> Default</label>
+            <label><input type="radio" name="sort" value="price-asc" /> Price: Low to High</label>
+            <label><input type="radio" name="sort" value="price-desc" /> Price: High to Low</label>
+            <label><input type="radio" name="sort" value="new" /> Newest First</label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>Price Range</legend>
+            <div class="price-range">
+              <label for="price-max" class="visually-hidden">Max price</label>
+              <input type="range" id="price-max" min="0" max="900" value="900" step="50" />
+              <div class="price-labels">
+                <span>₹0</span>
+                <span id="price-max-label">Up to ₹900</span>
+              </div>
+            </div>
+          </fieldset>
+
+          <button class="btn btn-ghost btn-full" id="reset-filters">Reset Filters</button>
+        </aside>
+
+        <!-- Book Results -->
+        <div class="books-results">
+          <div class="results-header">
+            <h2 id="books-heading" class="results-count" aria-live="polite">Loading books…</h2>
+            <button class="mobile-filter-toggle btn btn-ghost" aria-expanded="false" aria-controls="filters-sidebar-mobile">
+              ⚙ Filters
+            </button>
+          </div>
+          <div class="books-grid" id="books-grid" role="list">
+            <!-- Populated by JS -->
+          </div>
+          <p class="no-results" id="no-results" hidden>No books match your filters. <button id="reset-filters-2" class="link-btn">Reset filters</button></p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="brand-parent">DWARAKA</span>
+          <span class="brand-name">PRESS</span>
+        </div>
+        <p>Stories That Stay.<br/>Knowledge That Grows.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Imprints</h4>
+          <ul role="list">
+            <li><a href="books.html?cat=kids">Dwaraka Kids</a></li>
+            <li><a href="books.html?cat=learn">Dwaraka Learn</a></li>
+            <li><a href="books.html?cat=fiction">Dwaraka Fiction</a></li>
+            <li><a href="books.html?cat=knowledge">Dwaraka Knowledge</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul role="list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Dwaraka Press. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <dialog class="cart-modal" id="cart-modal" aria-labelledby="cart-heading">
+    <div class="cart-modal-inner">
+      <div class="cart-header">
+        <h2 id="cart-heading">Your Cart</h2>
+        <button class="icon-btn cart-close" aria-label="Close cart">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items" aria-live="polite">
+        <p class="cart-empty">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer" id="cart-footer" hidden>
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cart-total-price">₹0</span>
+        </div>
+        <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" aria-live="assertive" aria-atomic="true" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/books.js"></script>
+</body>
+</html>
